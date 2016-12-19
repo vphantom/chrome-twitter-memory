@@ -11,7 +11,7 @@
     "128": "icons/bird_flying_128.png"
   },
   "author": "Stéphane Lavergne",
-  "homepage_url": "https://github.com/vphantom/",
+  "homepage_url": "https://github.com/vphantom/chrome-twitter-memory",
   "content_scripts": [
     {
       "all_frames": true,
