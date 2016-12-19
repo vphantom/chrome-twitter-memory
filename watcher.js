@@ -5,23 +5,40 @@
 
 'use strict';
 
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(clickNewTweets);
+
 /**
  * Click "View XX new tweets" automatically
- *
- * This part inspired by https://github.com/mthie/refresh-for-twitter
  *
  * @return {void}
  */
 function clickNewTweets() {
-  var bars;
+  var button = null;
 
-  if (document.readyState !== 'interactive' && document.body.scrollTop === 0) {
-    bars = document.getElementsByClassName('js-new-tweets-bar');
-    if (bars.length > 0) {
-      bars[0].click();
+  if (document.body.scrollTop === 0) {
+    button = document.querySelector('.js-new-tweets-bar');
+    if (button !== null) {
+      button.click();
     }
   }
-  window.setTimeout(clickNewTweets, 2000);
 }
 
-window.setTimeout(clickNewTweets, 10000);
+/**
+ * Initial setup
+ *
+ * @return {void}
+ */
+function startObserving() {
+  // Check for new tweets immediately
+  clickNewTweets();
+
+  // Start observing
+  observer.observe(document, {
+    childList: true,
+    subtree  : true
+  });
+}
+
+// Let things settle down before getting going
+window.setTimeout(startObserving, 10000);
