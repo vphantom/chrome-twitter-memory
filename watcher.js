@@ -50,9 +50,9 @@ function clickNewTweets() {
 
   // FUTURE: Here we would note its data-item-id attribute in sync storage
 
-  // Click for new tweets
+  // Click for new tweets if button's within eye sight
   button = document.querySelector('.js-new-tweets-bar');
-  if (button !== null) {
+  if (button !== null  &&  elementInViewport(button)) {
     button.click();
 
     // If we clicked, restore tweet element's scroll position
