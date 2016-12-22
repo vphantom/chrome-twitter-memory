@@ -10,7 +10,6 @@ var observer = null;
 var seenTweet = null;
 var seenTweetTop = null;
 var uselessHeartbeats = 0;
-var scrollInterval = null;
 var interactive = true;
 
 /**
@@ -68,9 +67,6 @@ function scrollToSeenTweet() {
   var r = null;
 
   if (seenTweet === null || seenTweetTop === null) {
-    if (scrollInterval !== null) {
-      stopScrolling();
-    }
     return;
   }
 
@@ -84,35 +80,26 @@ function scrollToSeenTweet() {
     }
   } else {
     seenTweet = null;
-    stopScrolling();
+    seenTweetTop = null;
   }
 
-  if (uselessHeartbeats >= 15) {
-    stopScrolling();
+  // This assumes the browser shoots for 60 FPS
+  if (uselessHeartbeats < 60) {
+    requestAnimationFrame(scrollToSeenTweet);
+  } else {
+    seenTweetTop = null;
   }
 }
 
 
 /**
- * Scroll actively until 1.5s of stability
+ * Scroll actively until stability
  *
  * @return {void}
  */
 function scrollActively() {
   uselessHeartbeats = 0;
-  scrollInterval = setInterval(scrollToSeenTweet, 42);
-}
-
-
-/**
- * Stop scrolling actively
- *
- * @return {void}
- */
-function stopScrolling() {
-  clearInterval(scrollInterval);
-  scrollInterval = null;
-  seenTweetTop = null;
+  requestAnimationFrame(scrollToSeenTweet);
 }
 
 
@@ -138,6 +125,7 @@ function handleMutations(mutations) {
       // New media?
       if (node.nodeType === 1) {
         node.querySelectorAll('img, object').forEach(function(media) {
+          // Slow media may load after our animation timed out
           media.addEventListener('load', scrollToSeenTweet);
         });
       }
@@ -161,7 +149,7 @@ function handleMutations(mutations) {
   });
 
   if (newTweets) {
-    setTimeout(scrollToSeenTweet, 0);
+    requestAnimationFrame(scrollToSeenTweet);
   }
 }
 

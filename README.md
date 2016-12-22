@@ -2,11 +2,11 @@
 
 Timeline refresh and memory for Twitter
 
-* After an initial 5 seconds, automatically clicks Twitter's "View XX new tweets" button whenever it would appear.
+* After an initial 5 seconds, automatically clicks Twitter's "View XX new tweets" button whenever it would appear, if it is visible on screen (not when the user has scrolled down);
 
-* When loading new tweets, the currently lowest tweet fully into view is kept into view, thus minimizing scrolling so you can continue reading where you left off.
+* When loading new tweets, automatically or manually, timeline position is preserved so you can continue reading where you left off.
 
-* When you first load Twitter, your last known most recent viewed tweet is scrolled down to, for up to 5 refreshes (as if you had pressed `Page Down` until it comes into view), so you can continue reading where you left off.
+* When you first load Twitter, your last known most recent viewed tweet is scrolled down to, for up to 5 refreshes (as if you had pressed `Page Down` until it comes into view), so you can continue reading where you left off if it was recent.
 
 * The last tweet you saw is synchronized across all your Chrome browsers with this extension installed, so you can for example close Twitter on your Chromebook and continue on your desktop.
 
@@ -15,10 +15,9 @@ Timeline refresh and memory for Twitter
 I am currently developing the initial release.  So far:
 
 * [x] Wait 5 seconds to activate
-* [x] Click button immediately, without using wasteful timers
-* [ ] Performance: don't act when tab isn't into view
-* [x] Discover oldest visible tweet during checks
-* [ ] Save and synchronize oldest visible tweet ID during checks
+* [x] Click button immediately
+* [x] Discover last visible tweet
+* [ ] Save and synchronize last tweet ID
 * [x] Scroll to last position shortly after simulating click
 * [ ] Scroll to last position up to 5x when page is loaded
 
