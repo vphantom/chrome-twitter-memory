@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Timeline refresh and memory for Twitter",
   "short_name": "Refresher",
-  "version": "0.2.2",
-  "version_name": "0.2.2 alpha",
+  "version": "0.3.8",
+  "version_name": "0.3.8 alpha",
   "minimum_chrome_version": "18",
   "description": "Refresh timeline automatically and scroll to last seen tweet",
   "icons": {
@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "js": [
-        "watcher.js"
+        "twitter_addon.js"
       ],
       "matches": [
         "http://twitter.com/*",
