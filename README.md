@@ -1,6 +1,6 @@
-# ![Bird](https://raw.githubusercontent.com/vphantom/chrome-twitter-memory/master/icons/bird_flying_48.png) Twitter Memory
+# ![Bird](https://raw.githubusercontent.com/vphantom/chrome-twitter-memory/master/icons/bird_flying_48.png) Memory for Twitter
 
-Timeline refresh and memory for Twitter
+Remember timeline position and refresh automatically
 
 * After an initial 5 seconds, automatically clicks Twitter's "View XX new tweets" button whenever it would appear, if it is visible on screen (not when the user has scrolled down);
 
