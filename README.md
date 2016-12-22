@@ -1,4 +1,4 @@
-# Twitter Memory
+# ![Bird](https://raw.githubusercontent.com/vphantom/chrome-twitter-memory/master/icons/bird_flying_48.png) Twitter Memory
 
 Timeline refresh and memory for Twitter
 
