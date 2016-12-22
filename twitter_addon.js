@@ -135,6 +135,13 @@ function handleMutations(mutations) {
         newTweets = true;
       }
 
+      // New media?
+      if (node.nodeType === 1) {
+        node.querySelectorAll('img, object').forEach(function(media) {
+          media.addEventListener('load', scrollToSeenTweet);
+        });
+      }
+
       // Is the node a new View button?
       if (node.nodeType === 1 && node.classList.contains('js-new-tweets-bar')) {
         if (interactive && inViewport(node)) {

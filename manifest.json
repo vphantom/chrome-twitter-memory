@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Timeline refresh and memory for Twitter",
   "short_name": "Refresher",
-  "version": "0.3.8",
-  "version_name": "0.3.8 alpha",
+  "version": "0.3.13",
+  "version_name": "0.3.13 alpha",
   "minimum_chrome_version": "18",
   "description": "Refresh timeline automatically and scroll to last seen tweet",
   "icons": {
