@@ -106,6 +106,18 @@ function scrollActively() {
 
 
 /**
+ * Handle manual click to view button
+ *
+ * @return {void}
+ */
+function handleManualClick() {
+  interactive = true;
+  updateSeenTweet();
+  scrollActively();
+}
+
+
+/**
  * Click "View XX new tweets" automatically
  *
  * @param {array} mutations Array of MutationRecord
@@ -140,11 +152,7 @@ function handleMutations(mutations) {
           scrollActively();
         } else {
           interactive = false;
-          node.addEventListener('mousedown', function() {
-            interactive = true;
-            updateSeenTweet();
-            scrollActively();
-          });
+          node.addEventListener('mousedown', handleManualClick);
         }
       }
     });
