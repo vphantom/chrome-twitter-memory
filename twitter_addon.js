@@ -87,6 +87,7 @@ function scrollToSeenTweet() {
   if (uselessHeartbeats < 60) {
     requestAnimationFrame(scrollToSeenTweet);
   } else {
+    seenTweet = null;
     seenTweetTop = null;
   }
 }

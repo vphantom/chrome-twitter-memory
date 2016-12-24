@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Memory for Twitter",
   "short_name": "Memory",
-  "version": "0.3.18",
-  "version_name": "0.3.18 alpha",
+  "version": "0.3.19",
+  "version_name": "0.3.19 alpha",
   "minimum_chrome_version": "24",
   "description": "Remember timeline position and refresh automatically",
   "page_action": {
