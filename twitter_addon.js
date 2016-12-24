@@ -7,6 +7,7 @@
 
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 var observer = null;
+var newTweets = false;
 var seenTweet = null;
 var seenTweetTop = null;
 var uselessHeartbeats = 0;
@@ -112,7 +113,7 @@ function scrollActively() {
  * @return {void}
  */
 function handleMutations(mutations) {
-  var newTweets = false;
+  newTweets = false;
 
   mutations.forEach(function(mutation) {
     mutation.addedNodes.forEach(function(node) {
